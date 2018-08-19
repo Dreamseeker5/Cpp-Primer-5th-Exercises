@@ -52,8 +52,9 @@ int main() {
                   // only if D inherits publicly from B
   p = &d3;        // illegal, same reason as d2
   p = &dd1;       // legal
-  p = &dd2;       // illegal, same reason as d2
-  p = &dd3;       // illegal, same reason as d2
-
+  p = &dd2;       // illegal, Member functions and friends of classes derived from D may use the derived-to-base
+                  //conversion if D inherits from B using either public or protected. Such
+                  //code may not use the conversion if D inherits privately from B.
+  p = &dd3;       // legal
   return 0;
 }
